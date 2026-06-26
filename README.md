@@ -1,7 +1,7 @@
 # 💻 Siwa Oasis Traveler Hub
 
 <div align="center">
-  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:0f172a&height=160&section=header&text=Siwa%20Oasis%20Traveler%20Hub&fontSize=42&fontColor=38bdf8&fontFamily=Outfit" width="100%" />
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0d1117,100:059669&height=160&section=header&text=Siwa%20Traveler%20Hub&fontSize=42&fontColor=ffffff&fontFamily=Outfit" width="100%" />
 </div>
 
 <div align="center">
@@ -13,20 +13,20 @@
 ## 📌 Project Overview (Description)
 Premium glassmorphic user client for tourism management, featuring bus booking wizards, trip scheduling tools, and an integrated smart AI travel assistant.
 
-This codebase represents professional software development practices, clean module organization, and efficient code architectures tailored for high responsiveness and scalability.
+This codebase represents professional software development practices, clean styling variables, and modern glassmorphic web aesthetics.
 
 ---
 
 ## ⚡ The Engineering Challenge
 
 ### 🔴 Problem
-Developers building web solutions face difficulties handling state synchronization, styling inconsistencies, and complex configurations that clutter logic and trigger UI slowdowns or connection lifecycle failures.
+Making a frontend responsive, highly interactive, and visually stunning while keeping layout assets lightweight, fast, and structured.
 
 ### 🟢 Solution
 This project implements:
-* **Separation of Concerns**: Structured module layouts separating design assets from operational logic.
-* **Optimized Rendering**: Efficient script logic and CSS layout variables to maintain lightweight UI paint times.
-* **Structured Coding Standards**: Written using clean semantic patterns ensuring readable code maintainability.
+* **Glassmorphic Theme**: Sophisticated CSS styling variables to draw custom transparent container blur interfaces.
+* **Interactive AI Assistant Panel**: JavaScript component handling dynamic chat interface interactions with the backend API.
+* **Modular Page Routing**: Logically separated web layout pages for map routes, bookings, and places catalog.
 
 ---
 
@@ -34,10 +34,11 @@ This project implements:
 The internal layout structures are separated logically:
 ```text
 siwa-oasis-traveler-hub/
-├── css/ or styles/      # Styling engines and layouts
-├── js/ or src/          # Source scripts and business logic
-├── index.html or app.js # Operational entry point
-└── README.md            # System documentation
+├── *.css                # Dedicated styling sheets per panel
+├── *.js                 # Custom scripts for wizard flows and api queries
+├── photos/              # Tourism photography assets
+├── index.html           # Main landing entry page
+└── welcome.html         # Onboarding page
 ```
 
 ---
@@ -47,30 +48,29 @@ siwa-oasis-traveler-hub/
 | Technology | Purpose |
 | :--- | :--- |
 | HTML5 | Semantic structure layout |
-| CSS3 | Layout styling and animations |
-| JavaScript | DOM interactivity logic |
+| CSS3 | Glassmorphic design and styling variables |
+| JavaScript | Interactive panels and API query handlers |
 
 ---
 
 ## 🚀 Local Developer Setup & Run
 
 ### 📋 Prerequisites
-* Modern web browser / Node.js runtime (depending on project stack)
+* Modern web browser / Local Python http server
 
 ### ⚙️ Quick Start Steps
 ```bash
-    git clone https://github.com/Siwa-Oasis-Org/siwa-oasis-traveler-hub.git
-    cd siwa-oasis-traveler-hub
-    # Open index.html in any modern browser, or run local server:
-    python -m http.server 8080
+git clone https://github.com/Siwa-Oasis-Org/siwa-oasis-traveler-hub.git
+cd siwa-oasis-traveler-hub
+# Run local python http server
+python -m http.server 8080
 ```
 
 ---
 
 ## 🔮 Future Improvements
-* [ ] Integrate automated unit testing.
-* [ ] Add dynamic dark/light theme switcher.
-* [ ] Improve responsiveness on extra-small mobile screen viewports.
+* [ ] Migrate scripts to React and TypeScript.
+* [ ] Implement full offline support (PWA caching).
 
 ---
 
