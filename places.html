@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-key="places_title">Tourist attractions | Siwa</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="places.css"/>
+</head>
+<body>
+
+  <!-- نفس الهيدر -->places.css
+  <header class="header">
+    <div class="logo" data-key="logo">Siwa</div>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" data-key="home">Home</a></li>
+        <li><a href="about.html" data-key="about">About Siwa</a></li>
+        <li><a href="map.html" data-key="map">Map</a></li>
+        <li><a href="trip-planner.html" data-key="trip_planner">Trip planner</a></li>
+        <li><a href="bus-booking.html" data-key="bus_booking">Bus Booking</a></li>
+        <li><a href="places.html" class="active" data-key="places">Places</a></li>
+        <li><a href="ai-guide.html" data-key="ai_guide">Smart guide</a></li>
+      </ul>
+    </nav>
+    <div class="controls">
+      <button id="theme-switch" class="switch-btn"><i class="fas fa-moon"></i></button>
+      <div class="menu-btn"><i class="fas fa-bars"></i></div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="places-hero">
+    <div class="hero-content">
+      <h1 data-key="places_hero_title">Discover the most beautiful landmarks of Siwa</h1>
+      <p data-key="places_hero_sub">A must-see place before you leave the enchanting oasis</p>
+    </div>
+  </section>
+
+  <!-- Search Bar -->
+  <div class="search-bar-container">
+    <div class="search-box">
+      <i class="fas fa-search"></i>
+      <input type="text" id="placesSearch" placeholder="ابحث عن مكان... (Cleopatra, Shali, Temple...)" autocomplete="off">
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="places-grid" id="placesGrid">
+      <!-- الأماكن هتتحط هنا بالجافا سكريبت -->
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script type="module" src="places.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

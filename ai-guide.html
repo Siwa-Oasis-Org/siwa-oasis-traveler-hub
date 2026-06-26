@@ -1,0 +1,356 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-key="ai_guide_title">Smart Guide | Siwa</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+
+  <style>
+    :root {
+      --orange: #FF6B35;
+      --dark-header: #1a1a1a;
+    }
+
+    /* ── AI HERO ── */
+    .ai-hero {
+  background: var(--dark-header)
+  url('photos/1.jpeg');
+  padding: 5rem 1.5rem 0;
+  text-align: center;
+}
+    .ai-hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(1.8rem, 5vw, 2.6rem);
+      color: #fff;
+      margin-bottom: 0.4rem;
+    }
+    .ai-hero p {
+      color: rgba(255,255,255,0.55);
+      font-size: 0.95rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .ai-search-box {
+      display: flex;
+      align-items: center;
+      background: #2e2e2e;
+      border-radius: 50px;
+      padding: 6px 6px 6px 20px;
+      gap: 10px;
+      max-width: 580px;
+      margin: 0 auto 1.4rem;
+    }
+    .ai-search-box input {
+      flex: 1; background: none; border: none; outline: none;
+      color: rgba(255,255,255,0.7);
+      font-size: 0.95rem; font-family: 'Cairo', sans-serif;
+    }
+    .ai-search-box input::placeholder { color: rgba(255,255,255,0.35); }
+
+    #aiSend {
+      background: #fff; border: none; border-radius: 50px;
+      width: 42px; height: 42px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: var(--dark-header); font-size: 1rem;
+      flex-shrink: 0; transition: background 0.2s;
+    }
+    #aiSend:hover { background: var(--orange); color: #fff; }
+
+    /* ── SESSIONS BAR ── */
+    .sessions-bar {
+      background: #222;
+      padding: 10px 1.5rem;
+      display: flex; align-items: center; justify-content: center; gap: 10px;
+    }
+    .session-dots { display: flex; gap: 5px; }
+    .sdot {
+      width: 10px; height: 10px; border-radius: 50%;
+      background: #444; transition: background 0.3s;
+    }
+    .sdot.used { background: var(--orange); }
+    .sessions-bar span {
+      color: rgba(255,255,255,0.45); font-size: 0.8rem; letter-spacing: 0.05em;
+    }
+
+    /* ── CHAT AREA ── */
+    .container {
+      max-width: 680px; margin: 0 auto;
+      padding: 0 1.2rem;
+    }
+
+    .ai-chat {
+      display: flex; flex-direction: column; gap: 14px;
+      padding: 1.5rem 0 1rem;
+      min-height: 300px;
+      scroll-behavior: smooth;
+    }
+
+    .msg { display: flex; flex-direction: column; max-width: 85%; }
+    .msg.bot  { align-self: flex-start; }
+    .msg.user { align-self: flex-end; }
+
+    .msg-bubble {
+      padding: 14px 18px; border-radius: 18px;
+      font-size: 0.95rem; line-height: 1.6;
+      font-family: 'Cairo', sans-serif;
+    }
+    .msg.bot .msg-bubble {
+      background: #fff; color: #1a1a1a;
+      border-bottom-left-radius: 4px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+    }
+    .msg.bot .msg-bubble strong { display: block; margin-bottom: 4px; font-weight: 700; }
+    .msg.user .msg-bubble {
+      background: var(--dark-header); color: #fff;
+      border-bottom-right-radius: 4px;
+    }
+    .msg-time {
+      font-size: 0.72rem; color: #999;
+      margin-top: 4px; padding: 0 4px;
+    }
+    .msg.user .msg-time { text-align: right; }
+
+    /* Typing */
+    .typing .msg-bubble { display: flex; align-items: center; gap: 5px; }
+    .typing-dot {
+      width: 7px; height: 7px; border-radius: 50%; background: #bbb;
+      animation: bounce 1.2s ease-in-out infinite;
+    }
+    .typing-dot:nth-child(2) { animation-delay: 0.2s; }
+    .typing-dot:nth-child(3) { animation-delay: 0.4s; }
+    @keyframes bounce {
+      0%,60%,100% { transform: translateY(0); }
+      30%          { transform: translateY(-7px); }
+    }
+
+    /* Quick replies */
+    .quick-replies {
+      display: flex; flex-wrap: wrap; gap: 8px;
+      padding: 0 0 1.2rem;
+    }
+    .qr-btn {
+      background: #fff; border: 1.5px solid #ddd; border-radius: 50px;
+      padding: 8px 16px; font-size: 0.83rem;
+      font-family: 'Cairo', sans-serif; cursor: pointer;
+      color: #1a1a1a; transition: 0.2s;
+    }
+    .qr-btn:hover { background: var(--orange); color: #fff; border-color: var(--orange); }
+
+    /* ── BOTTOM INPUT ── */
+    .bottom-input {
+      background: #fff; border-top: 1px solid #e8e0d0;
+      padding: 12px 1.5rem;
+      position: sticky; bottom: 0;
+    }
+    .bottom-input-inner {
+      display: flex; align-items: center; gap: 10px;
+      max-width: 680px; margin: 0 auto;
+      background: #f5efe4; border-radius: 50px;
+      padding: 8px 8px 8px 18px;
+    }
+    .bottom-input input {
+      flex: 1; background: none; border: none; outline: none;
+      font-size: 0.95rem; font-family: 'Cairo', sans-serif; color: #1a1a1a;
+    }
+    .bottom-input input::placeholder { color: #bbb; }
+    .bottom-send {
+      background: var(--dark-header); border: none; border-radius: 50px;
+      width: 40px; height: 40px;
+      display: flex; align-items: center; justify-content: center;
+      cursor: pointer; color: #fff; font-size: 0.9rem;
+      flex-shrink: 0; transition: background 0.2s;
+    }
+    .bottom-send:hover { background: var(--orange); }
+
+    /* Dark mode */
+    [data-theme="dark"] .msg.bot .msg-bubble { background: #2a2a2a; color: #eee; }
+    [data-theme="dark"] .qr-btn { background: #2a2a2a; color: #eee; border-color: #444; }
+    [data-theme="dark"] .bottom-input { background: #1a1a1a; border-color: #333; }
+    [data-theme="dark"] .bottom-input-inner { background: #2a2a2a; }
+    [data-theme="dark"] .bottom-input input { color: #eee; }
+  </style>
+</head>
+<body>
+
+  <!-- ── HEADER (الكود القديم كما هو) ── -->
+  <header class="header">
+    <div class="logo" data-key="logo">Siwa</div>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" data-key="home">Home</a></li>
+        <li><a href="about.html" data-key="about">About Siwa</a></li>
+        <li><a href="map.html" data-key="map">Map</a></li>
+        <li><a href="trip-planner.html" data-key="trip_planner">Trip planner</a></li>
+        <li><a href="bus-booking.html" data-key="bus_booking">Bus Booking</a></li>
+        <li><a href="places.html" data-key="places">Places</a></li>
+        <li><a href="ai-guide.html" class="active" data-key="ai_guide">Smart guide</a></li>
+      </ul>
+    </nav>
+    <div class="controls">
+      <button id="theme-switch" class="switch-btn"><i class="fas fa-moon"></i></button>
+      <div class="menu-btn"><i class="fas fa-bars"></i></div>
+    </div>
+  </header>
+
+  <!-- ── AI HERO ── -->
+  <section class="ai-hero">
+    <h1 data-key="ai_hero_title">Siwa Smart Guide</h1>
+    <p data-key="ai_hero_sub">Ask me anything about Siwa... I'm here for you 24/7</p>
+    <div class="ai-search-box">
+      <input type="text" id="aiInput" placeholder="Write your question here..." autocomplete="off"
+             onkeydown="if(event.key==='Enter') sendMsg()">
+      <button id="aiSend" onclick="sendMsg()"><i class="fas fa-paper-plane"></i></button>
+    </div>
+  </section>
+
+  <!-- ── SESSIONS BAR ── -->
+  <div class="sessions-bar">
+    <div class="session-dots" id="session-dots"></div>
+    <span id="session-count">0 / 15 sessions today</span>
+  </div>
+
+  <!-- ── CHAT + QUICK REPLIES ── -->
+  <div class="container">
+    <div id="aiChat" class="ai-chat">
+      <div class="msg bot">
+        <div class="msg-bubble">
+          <strong>Welcome to Siwa Oasis!</strong>
+          Ask me about any place or activity and I will answer you instantly.
+        </div>
+        <span class="msg-time">now</span>
+      </div>
+    </div>
+
+    <div class="quick-replies">
+      <button class="qr-btn" onclick="quickSend('What is the best time to visit Siwa?')">🌤 Best time to visit?</button>
+      <button class="qr-btn" onclick="quickSend('How do I get to Siwa?')">🚌 How to get there?</button>
+      <button class="qr-btn" onclick="quickSend('Where to stay in Siwa?')">🏨 Where to stay?</button>
+      <button class="qr-btn" onclick="quickSend('Top landmarks and activities in Siwa')">🗺 Top landmarks</button>
+    </div>
+  </div>
+
+  <!-- ── BOTTOM INPUT ── -->
+  <div class="bottom-input">
+    <div class="bottom-input-inner">
+      <input type="text" id="bottomInput" placeholder="Write your message..."
+             onkeydown="if(event.key==='Enter') sendMsg()">
+      <button class="bottom-send" onclick="sendMsg()">
+        <i class="fas fa-paper-plane"></i>
+      </button>
+    </div>
+  </div>
+
+  <!-- نفس الـ scripts القديمة -->
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+  <script type="module" src="ai-guide.js"></script>
+
+  <script>
+    /* ── Sessions ── */
+    let sessionCount = 0;
+    const MAX_SESSIONS = 15;
+
+    function renderDots() {
+      const wrap = document.getElementById('session-dots');
+      wrap.innerHTML = '';
+      for (let i = 0; i < MAX_SESSIONS; i++) {
+        const d = document.createElement('div');
+        d.className = 'sdot' + (i < sessionCount ? ' used' : '');
+        wrap.appendChild(d);
+      }
+      document.getElementById('session-count').textContent =
+        `${sessionCount} / ${MAX_SESSIONS} sessions today`;
+    }
+    renderDots();
+
+    /* ── Send ── */
+    function sendMsg() {
+      const topIn = document.getElementById('aiInput');
+      const botIn = document.getElementById('bottomInput');
+      const text = (topIn.value || botIn.value).trim();
+      if (!text) return;
+
+      if (sessionCount >= MAX_SESSIONS) {
+        addMsg('bot', '⚠️ You have reached your daily limit of 15 sessions. Please come back tomorrow!');
+        return;
+      }
+
+      topIn.value = ''; botIn.value = '';
+      addMsg('user', text);
+      sessionCount++;
+      renderDots();
+
+      const tid = addTyping();
+      setTimeout(() => {
+        removeTyping(tid);
+        // يستخدم الدالة من ai-guide.js لو موجودة، وإلا يستخدم الافتراضية
+        const reply = typeof getAIReply === 'function' ? getAIReply(text) : getDefaultReply(text);
+        addMsg('bot', reply);
+      }, 1000 + Math.random() * 600);
+    }
+
+    function quickSend(text) {
+      document.getElementById('aiInput').value = text;
+      sendMsg();
+    }
+
+    function getDefaultReply(msg) {
+      const m = msg.toLowerCase();
+      if (m.includes('time') || m.includes('visit') || m.includes('when'))
+        return 'The best time to visit Siwa is October to April — mild weather and clear skies. Spring (March–April) is especially magical with blooming palms. Avoid June–August due to extreme heat.';
+      if (m.includes('get') || m.includes('bus') || m.includes('travel') || m.includes('reach'))
+        return 'You can reach Siwa from Cairo or Alexandria by West Delta Bus Co. (~8–9 hrs). You can also rent a car or join an organized desert tour. There\'s no airport or train in Siwa.';
+      if (m.includes('stay') || m.includes('hotel') || m.includes('lodge'))
+        return 'Great options include:\n• Adrere Amellal – luxury eco-resort\n• Shali Lodge – rustic & charming\n• Siwa Safari Paradise Hotel\nMost are built from traditional kershef mud-brick.';
+      if (m.includes('landmark') || m.includes('activit') || m.includes('place') || m.includes('top') || m.includes('see'))
+        return 'Top spots in Siwa:\n🏛 Temple of Amun (Oracle Temple)\n🏰 Shali Fortress\n💧 Cleopatra Spring\n🏜 Great Sand Sea (safari & camping)\n🌊 Salt Lakes (therapeutic swimming)';
+      return 'Great question! Siwa Oasis is a hidden gem in Egypt\'s Western Desert. Ask me about places, activities, food, culture, or travel tips!';
+    }
+
+    /* ── DOM helpers ── */
+    function addMsg(role, text) {
+      const chat = document.getElementById('aiChat');
+      const wrap = document.createElement('div');
+      wrap.className = `msg ${role}`;
+      const bubble = document.createElement('div');
+      bubble.className = 'msg-bubble';
+      bubble.style.whiteSpace = 'pre-line';
+      bubble.textContent = text;
+      const time = document.createElement('span');
+      time.className = 'msg-time';
+      time.textContent = 'now';
+      wrap.appendChild(bubble);
+      wrap.appendChild(time);
+      chat.appendChild(wrap);
+      chat.scrollTop = chat.scrollHeight;
+    }
+
+    let typingCounter = 0;
+    function addTyping() {
+      const id = 'typing-' + (++typingCounter);
+      const chat = document.getElementById('aiChat');
+      const wrap = document.createElement('div');
+      wrap.className = 'msg bot typing';
+      wrap.id = id;
+      wrap.innerHTML = `<div class="msg-bubble">
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+        <div class="typing-dot"></div>
+      </div>`;
+      chat.appendChild(wrap);
+      chat.scrollTop = chat.scrollHeight;
+      return id;
+    }
+
+    function removeTyping(id) {
+      const el = document.getElementById(id);
+      if (el) el.remove();
+    }
+  </script>
+
+</body>
+</html>

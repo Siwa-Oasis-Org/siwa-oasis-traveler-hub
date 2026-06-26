@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-key="contact_title">تواصل معانا | سيوة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="contact.css"/>
+  
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo" data-key="logo">سيوة</div>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li><a href="index.html" class="active" data-key="home">Home</a></li>
+    <li><a href="about.html" data-key="about">About Siwa</a></li>
+    <li><a href="map.html" data-key="map">Map</a></li>
+    <li><a href="trip-planner.html" data-key="trip_planner">Trip planner</a></li>
+    <li><a href="bus-booking.html" data-key="bus_booking">Bus Booking</a></li>
+    <li><a href="places.html" data-key="places">Places</a></li>
+    <li><a href="ai-guide.html" data-key="ai_guide">Smart guide</a></li>
+      </ul>
+    </nav>
+    <div class="controls">
+      <button id="lang-switch" class="switch-btn">
+        <span class="lang-en">EN</span> / <span class="lang-ar active">ع</span>
+      </button>
+      <button id="theme-switch" class="switch-btn"><i class="fas fa-moon"></i></button>
+      <div class="menu-btn"><i class="fas fa-bars"></i></div>
+    </div>
+  </header>
+
+  <section class="contact-hero">
+    <div class="hero-content">
+      <h1>تواصل معانا</h1>
+      <p>جاهزين نساعدك تخطط أجمل رحلة في حياتك</p>
+    </div>
+  </section>
+
+  <div class="container contact-container">
+    <div class="contact-form">
+      <h2>ابعث رسالة</h2>
+      <form action="https://formspree.io/f/xblrwpda" method="POST">
+        <input type="text" name="name" placeholder="اسمك" required>
+        <input type="tel" name="phone" placeholder="رقم التليفون" required>
+        <input type="email" name="email" placeholder="إيميلك (اختياري)">
+        <textarea name="message" rows="6" placeholder="عايز تسأل عن إيه؟ أو عايز تخطط رحلة؟" required></textarea>
+        <button type="submit" class="big-btn">إرسال الرسالة</button>
+      </form>
+    </div>
+
+    <div class="contact-info">
+      <h2>معلومات التواصل</h2>
+      <div class="info-item">
+        <i class="fas fa-phone"></i>
+        <div>
+          <strong>واتساب / تليفون</strong><br>
+          <a href="https://wa.me/201234567890">+20 123 456 7890</a>
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-envelope"></i>
+        <div>
+          <strong>الإيميل</strong><br>
+          siwa@travel.com
+        </div>
+      </div>
+      <div class="info-item">
+        <i class="fas fa-map-marker-alt"></i>
+        <div>
+          <strong>العنوان</strong><br>
+          ميدان السوق - سيوة - مطروح
+        </div>
+      </div>
+
+      <div class="social">
+        <a href="#"><i class="fab fa-facebook"></i></a>
+        <a href="#"><i class="fab fa-instagram"></i></a>
+        <a href="#"><i class="fab fa-tiktok"></i></a>
+      </div>
+
+      <a href="https://wa.me/201234567890" class="whatsapp-float">
+        <i class="fab fa-whatsapp"></i> واتساب دلوقتي
+      </a>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

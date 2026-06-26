@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-key="bus_booking_title">حجز أتوبيس | سيوة</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="bus-booking.css"/>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo">Siwa</div>
+    <nav class="nav">
+      <ul class="nav-list">
+    <li><a href="index.html" class="active" data-key="home">Home</a></li>
+    <li><a href="about.html" data-key="about">About Siwa</a></li>
+    <li><a href="map.html" data-key="map">Map</a></li>
+    <li><a href="trip-planner.html" data-key="trip_planner">Trip planner</a></li>
+    <li><a href="bus-booking.html" data-key="bus_booking">Bus Booking</a></li>
+    <li><a href="places.html" data-key="places">Places</a></li>
+    <li><a href="ai-guide.html" data-key="ai_guide">Smart guide</a></li>
+
+
+
+
+
+      </ul>
+    </nav>
+    <div class="controls">
+      <button id="theme-switch"><i class="fas fa-moon"></i></button>
+      <div class="menu-btn"><i class="fas fa-bars"></i></div>
+    </div>
+  </header>
+
+  <section class="bus-hero">
+    <div class="hero-content">
+      <h1>Book a bus to Siwa</h1>
+      <p>The fastest and cheapest way to reach the oasis</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="booking-card">
+      <h2>Find a flight</h2>
+      
+      <div class="form-grid">
+        <div>
+          <label>from</label>
+          <select id="fromCity">
+            <option value="cairo">Cairo</option>
+            <option value="alex">Alex</option>
+            <option value="matrouh">Marsa Matrouh</option>
+          </select>
+        </div>
+        <div>
+          <label>to</label>
+          <select id="toCity">
+            <option value="siwa">Siwa</option>
+          </select>
+        </div>
+        <div>
+          <label>the date</label>
+          <input type="date" id="travelDate">
+        </div>
+        <div>
+          <label>Number of passengers</label>
+          <input type="number" id="passengers" value="1" min="1" max="8">
+        </div>
+      </div>
+
+      <button id="searchBtn" class="big-btn">Search for buses</button>
+    </div>
+
+    <div id="results" class="results-container"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script type="module" src="bus-Booking.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

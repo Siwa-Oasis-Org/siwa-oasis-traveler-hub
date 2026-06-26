@@ -1,0 +1,159 @@
+<!<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <title>Place Details</title>
+  <style>
+    body {
+      font-family: Arial;
+      direction: ltr;
+      text-align: center;
+      background: #f4f4f4;
+      padding: 20px;
+    }
+
+    .details-card {
+      background: white;
+      padding: 20px;
+      border-radius: 15px;
+      max-width: 600px;
+      margin: auto;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+    }
+
+    img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 15px;
+    }
+
+    h1 {
+      color: #2c3e50;
+    }
+
+    p {
+      line-height: 1.8;
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+
+<div class="details-card">
+  <img id="placeImage">
+  <h1 id="placeTitle"></h1>
+  <p id="placeDesc"></p>
+  <p id="placeExtra"></p>
+</div>
+
+<script>
+  const placesData = {
+    "Cleopatra Spring": {
+      desc: "The most famous hot spring in Siwa, with warm and crystal-clear water.",
+      extra: "In the heart of Siwa Oasis shines Cleopatra Spring as a magical blend of legend and nature. A circular spring with clear warm water flowing from underground, associated with the visit of Queen Cleopatra, giving the place a royal and unforgettable aura. Here the blue water blends with the green palm trees and the calm desert atmosphere, making swimming a refreshing physical and spiritual experience, especially at sunset or under a star-filled sky. It is not just a water spring, but a living historical moment and a peaceful retreat worth traveling for.",
+      img: "photos/places/1.jpg"
+    },
+
+    "Shali Fortress": {
+      desc: "A historic fortress from the 13th century built from kershef.",
+      extra: "In the heart of Siwa Oasis stands Shali Fortress as if guarding the history of the oasis for centuries. This ancient fortress was built in the 13th century using kershef, a traditional mixture of salt and mud, demonstrating the brilliance of Siwan architecture. Walking through its narrow alleys and curved walls feels like walking through the pages of history, when it once served as the center of life, housing, and protection for the people of Siwa. From its highest points you can enjoy a stunning panoramic view of palm trees, salt lakes, and the vast desert, especially at sunset when the sun paints its walls in warm golden colors.",
+      img: "photos/places/2.jpg"
+    },
+
+    "Temple of Amun": {
+      desc: "A famous historical temple in Siwa.",
+      extra: "On the edge of Siwa Oasis stands the Temple of Amun as one of the greatest secrets of ancient history. The temple became famous when Alexander the Great visited it in 331 BC to receive divine confirmation that he was the son of the god Amun. Among its stone columns and silent ruins you can feel the majesty of ancient Egyptian civilization. Its elevated location offers breathtaking views of the oasis and the surrounding desert, especially at sunset when the stones glow in golden light that takes you thousands of years back in time.",
+      img: "photos/places/3.jpg"
+    },
+
+    "Dakrour Mountain": {
+      desc: "The most famous site for sand therapy in Siwa.",
+      extra: "In the heart of Siwa Oasis rises Dakrour Mountain as one of its most prominent natural and therapeutic landmarks. Visitors come here to experience the famous sand bath therapy known to help relieve joint pain and rheumatism. From its summit you can enjoy a stunning panoramic view of palm trees, salt lakes, and golden dunes, especially during sunset when the sky turns into a breathtaking artistic painting.",
+      img: "photos/places/4.png"
+    },
+
+    "Salt Lakes": {
+      desc: "A unique floating experience in crystal-clear salty water.",
+      extra: "Siwa's salt lakes offer a floating experience similar to the Dead Sea. Turquoise water surrounded by shining white salt crystals creates a magical natural scene. Floating on the surface while enjoying the calm desert environment makes it an unforgettable relaxation experience and a perfect place for amazing photos.",
+      img: "photos/places/5.jpg"
+    },
+
+    "Fatnas Spring": {
+      desc: "The best place to watch the sunset.",
+      extra: "A small island surrounded by palm trees known for its legendary sunset views. The orange colors of the sky reflect beautifully on the calm water creating a breathtaking scene. It is the perfect place to relax with a cup of Siwan tea while watching the sun disappear behind the horizon.",
+      img: "photos/places/6.png"
+    },
+
+    "Great Sand Sea": {
+      desc: "A safari adventure among endless golden dunes.",
+      extra: "The Great Sand Sea stretches across vast areas of golden dunes offering thrilling safari experiences with 4x4 vehicles. Visitors can enjoy sandboarding, desert exploration, and camping under a sky full of bright stars in a breathtaking natural atmosphere.",
+      img: "photos/places/7.jpg"
+    },
+
+    "Mountain of the Dead": {
+      desc: "Ancient tombs carved into rock.",
+      extra: "The Mountain of the Dead contains tombs dating back to the Pharaonic and Roman periods, carved inside the mountain with ancient drawings and inscriptions that still tell stories of civilizations that once lived in the heart of the desert. Visiting it is truly a journey through time.",
+      img: "photos/places/8.jpg"
+    },
+
+    "Traditional Market": {
+      desc: "The heart of daily life in Siwa.",
+      extra: "An authentic Siwan market filled with the scents of dates, olive oil, and traditional handmade crafts. It is a perfect place to explore local culture and buy souvenirs that reflect the spirit and heritage of the oasis.",
+      img: "photos/places/9.jpg"
+    },
+
+    "Bir Wahed": {
+      desc: "A hot spring in the middle of the desert.",
+      extra: "Deep in the desert lies Bir Wahed as a warm oasis between the dunes. Visitors can enjoy a natural hot bath after a long safari trip while watching one of the most stunning desert sunsets.",
+      img: "photos/places/10.jpg"
+    },
+
+    "Cleopatra Night Bath": {
+      desc: "A magical night swimming experience.",
+      extra: "When night falls and the stars sparkle above Siwa's sky, Cleopatra Spring transforms into a romantic and peaceful place that gives visitors a sense of harmony with nature in a truly unique atmosphere.",
+      img: "photos/places/11.jpg"
+    },
+
+    "Desert Camping": {
+      desc: "A night under the most beautiful starry sky.",
+      extra: "Camping among golden dunes with traditional Bedouin dinner and soft music offers a peaceful experience where endless stars fill the sky and give you a feeling of freedom away from the noise of the world.",
+      img: "photos/places/12.jpg"
+    },
+
+    "Ain El-Gara": {
+      desc: "A peaceful spring for relaxation.",
+      extra: "A natural spring surrounded by palm trees offering visitors moments of peace and silence away from crowds. It is an ideal place for meditation and enjoying the beauty of Siwan nature.",
+      img: "photos/places/13.jpg"
+    },
+
+    "Sunset Safari": {
+      desc: "A desert adventure at sunset.",
+      extra: "A thrilling trip with 4x4 vehicles across sand dunes during sunset when the sky turns into shades of red and orange, creating an exciting experience with breathtaking landscapes.",
+      img: "photos/places/14.jpg"
+    },
+
+    "Siwa Oasis at Night": {
+      desc: "A night tour in magical atmosphere.",
+      extra: "Night in Siwa has a special character: deep silence, soft lighting, and cool desert breezes creating a peaceful and safe atmosphere in the old streets of the oasis.",
+      img: "photos/places/15.jpg"
+    }
+  };
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const placeName = decodeURIComponent(urlParams.get("place"));
+
+  const place = placesData[placeName];
+
+  if (place) {
+    document.getElementById("placeTitle").innerText = placeName;
+    document.getElementById("placeDesc").innerText = place.desc;
+    document.getElementById("placeExtra").innerText = place.extra;
+    document.getElementById("placeImage").src = place.img;
+  } else {
+    document.body.innerHTML = "<h2>Place not found</h2>";
+  }
+</script>
+
+<script src="auth.js"></script>
+</body>
+</html>

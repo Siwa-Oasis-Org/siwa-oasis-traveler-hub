@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-key="about_title">About Siwa | The Enchanting Oasis</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="about.css"/>
+</head>
+<body>
+
+  <!-- نفس الهيدر -->
+  <header class="header">
+    <div class="logo" data-key="logo">Siwa</div>
+    <nav class="nav">
+      <ul class="nav-list">
+    <li><a href="index.html" class="active" data-key="home">Home</a></li>
+    <li><a href="about.html" data-key="about">About Siwa</a></li>
+    <li><a href="map.html" data-key="map">Map</a></li>
+    <li><a href="trip-planner.html" data-key="trip_planner">Trip planner</a></li>
+    <li><a href="bus-booking.html" data-key="bus_booking">Bus Booking</a></li>
+    <li><a href="places.html" data-key="places">Places</a></li>
+    <li><a href="ai-guide.html" data-key="ai_guide">Smart guide</a></li>
+      </ul>
+    </nav>
+    <div class="controls">
+      <!--<button id="lang-switch" class="switch-btn">
+        <span class="lang-en">EN</span> / <span class="lang-ar active">ع</span>
+      </button>-->
+      <button id="theme-switch" class="switch-btn"><i class="fas fa-moon"></i></button>
+      <div class="menu-btn"><i class="fas fa-bars"></i></div>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section class="about-hero">
+    <div class="hero-content">
+      <h1>About Siwa</h1>
+      <p>The enchanting oasis in the heart of the Western Desert</p>
+    </div>
+  </section>
+
+  <div class="container">
+
+    <!-- تاريخ سيوة -->
+    <section class="about-section">
+      <h2>History of Siwa</h2>
+      <div class="history-grid">
+        <div class="history-text">
+          <p>Siwa is one of the oldest oases in the world, inhabited by Amazigh (Berber) people for thousands of years. Alexander the Great visited it in 331 BC and consulted the oracle at the Temple of Amun, who confirmed to him that he was the son of the god Amun.!</p>
+          <p>It remained isolated for centuries due to the Great Sand Sea, and this preserved its culture, its Siwi (Berber) language, and its authentic customs to this day..</p>
+        </div>
+        <img src="photos/2.jpeg" alt="Old Shali Castle">
+      </div>
+    </section>
+
+    <!-- أفضل وقت للزيارة -->
+    <section class="about-section">
+      <h2>Best time to visit</h2>
+      <div class="seasons">
+        <div class="season"><strong>October - April</strong><br>The weather is ideal at 15-25°C</div>
+        <div class="season"><strong>May - September</strong><br>Hot during the day but cold at night</div>
+      </div>
+      <a href="ai-guide.html" class="big-btn">Ask the smart guide about the current weather.</a>
+    </section>
+
+    <!-- الطقس -->
+    <section class="about-section weather">
+      <h2>Weather in Siwa</h2>
+      <div class="weather-cards">
+        <div>Summer: Up to 42°C during the day</div>
+        <div>Winter: 8-22°C</div>
+        <div>Humidity: very low</div>
+        <div>Rain: very rare</div>
+      </div>
+    </section>
+
+    <!-- المواصلات -->
+    <section class="about-section">
+      <h2>How do I get to Siwa?</h2>
+      <div class="transport-grid">
+        <div><i class="fas fa-bus"></i><strong>Bus from Cairo</strong><br>8-10 hours (comfortable overnight flight)</div>
+        <div><i class="fas fa-plane"></i><strong>Airplane to Marsa Matrouh</strong><br>And then a 3-hour car</div>
+        <div><i class="fas fa-car"></i><strong>A private car</strong><br>The most beautiful road in Egypt</div>
+      </div>
+    </section>
+
+    <!-- حقائق سريعة -->
+    <section class="about-section facts">
+      <h2>Quick facts about Siwa</h2>
+      <div class="facts-grid">
+        <div><i class="fas fa-users"></i> Population: ~33,000</div>
+        <div><i class="fas fa-globe"></i> Area: 80 km long x 20 km wide</div>
+        <div><i class="fas fa-language"></i> Language: Arabic + Siwi (Berber)</div>
+        <div><i class="fas fa-star"></i> The purest starry sky in Egypt</div>
+      </div>
+      <a href="places.html" class="big-btn">Discover places</a>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

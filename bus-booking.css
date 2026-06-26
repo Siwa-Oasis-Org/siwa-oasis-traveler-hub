@@ -1,0 +1,95 @@
+.bus-hero {
+  height: 65vh;
+  background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.5)),
+              url('photos/10.jpg') center/cover no-repeat fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+}
+
+.booking-card {
+  background: var(--light);
+  padding: 3rem;
+  border-radius: 28px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+  margin: -80px auto 4rem;
+  max-width: 1100px;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  margin: 2rem 0;
+}
+
+.form-grid label {
+  display: block;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.form-grid select, .form-grid input {
+  width: 100%;
+  padding: 14px;
+  border-radius: 16px;
+  border: 2px solid #ddd;
+  font-size: 1.1rem;
+}
+
+#searchBtn {
+  width: 100%;
+  margin-top: 1rem;
+  font-size: 1.4rem;
+  padding: 1.3rem;
+}
+
+.results-container {
+  display: grid;
+  gap: 1.5rem;
+  margin-top: 3rem;
+}
+
+.bus-result {
+  background: white;
+  border-radius: 20px;
+  padding: 1.8rem;
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+  flex-wrap: wrap;
+}
+
+.bus-result .company {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--orange);
+}
+
+.bus-result .time {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+.bus-result .price {
+  font-size: 1.6rem;
+  color: var(--orange);
+  font-weight: bold;
+}
+
+.book-now-btn {
+  background: var(--orange);
+  color: white;
+  border: none;
+  padding: 12px 32px;
+  border-radius: 50px;
+  font-size: 1.1rem;
+  cursor: pointer;
+}
+
+[data-theme="dark"] .bus-result {
+  background: #2a2a2a;
+}

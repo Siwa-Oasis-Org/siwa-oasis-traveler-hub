@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-key="map_title">Interactive Map | Siwa</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="map.css"/>
+  
+</head>
+<body>
+
+  <!-- نفس الهيدر بتاع الـ Home -->
+  <header class="header">
+    <div class="logo" data-key="logo">Siwa</div>
+    <nav class="nav">
+      <ul class="nav-list">
+    <li><a href="index.html" class="active" data-key="home">Home</a></li>
+    <li><a href="about.html" data-key="about">About Siwa</a></li>
+    <li><a href="map.html" data-key="map">Map</a></li>
+    <li><a href="trip-planner.html" data-key="trip_planner">Trip planner</a></li>
+    <li><a href="bus-booking.html" data-key="bus_booking">Bus Booking</a></li>
+    <li><a href="places.html" data-key="places">Places</a></li>
+    <li><a href="ai-guide.html" data-key="ai_guide">Smart guide</a></li>
+      </ul>
+    </nav>
+    <div class="controls">
+      
+      <!--<button id="lang-switch" class="switch-btn">
+        <span class="lang-en">EN</span> / <span class="lang-ar active">ع</span>
+      </button>-->
+      <button id="theme-switch" class="switch-btn"><i class="fas fa-moon"></i></button>
+      <div class="menu-btn"><i class="fas fa-bars"></i></div>
+    </div>
+  </header>
+
+  <!-- Hero الخريطة -->
+  <section class="map-hero">
+    <div class="hero-content">
+      <h1 data-key="map_hero_title">Discover Siwa</h1>
+      <p data-key="map_hero_sub">Click on any landmark to open it on Google Maps</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="map-container">
+      <!-- الخريطة التفاعلية -->
+      <div id="interactive-map"></div>
+
+      <!-- قائمة الفلاتر الجانبية -->
+      <div class="filters">
+        <h3>Filter by type</h3>
+        <label><input type="checkbox" value="spring" checked> Springs</label>
+        <label><input type="checkbox" value="historical" checked> Antiquities and history</label>
+        <label><input type="checkbox" value="nature" checked> nature</label>
+        <label><input type="checkbox" value="adventure" checked> Adventures</label>
+        <label><input type="checkbox" value="view" checked> Views and sunsets</label>
+      </div>
+    </div>
+
+    <div class="legend">
+      <span><i class="fas fa-tint"></i> Springs</span>
+      <span><i class="fas fa-monument"></i> Antiquities</span>
+      <span><i class="fas fa-mountain"></i> nature</span>
+      <span><i class="fas fa-car"></i> Safari</span>
+      <span><i class="fas fa-sunset"></i> sunset</span>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="map.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Siwa | Discover the hidden gem</title>
+  
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Cairo:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css" />
+  <!-- في الـ nav أو controls -->
+<li><a href="auth.html">My account</a></li>
+<a href="auth.html" class="big-btn">Login / Register</a>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo" data-key="logo">SIWA</div>
+    
+    <nav class="nav">
+      <ul class="nav-list">
+  
+<li><a href="index.html"  data-key="home">Home</a></li>
+    <li><a href="about.html" data-key="about">About Siwa</a></li>
+    <li><a href="map.html" data-key="map">Map</a></li>
+    <li><a href="trip-planner.html" data-key="trip_planner">Trip planner</a></li>
+    <li><a href="bus-booking.html" data-key="bus_booking">Bus Booking</a></li>
+    <li><a href="places.html" data-key="places">Places</a></li>
+    <li><a href="ai-guide.html" data-key="ai_guide">Smart guide</a></li>
+
+</ul>
+    </nav>
+
+<div class="controls">
+  <button id="theme-switch" class="switch-btn">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <a href="auth.html" class="login-btn" id="nav-auth-btn">
+    <i class="fas fa-user"></i> 
+    <span id="auth-text">Login</span>
+  </a>
+
+  <div class="menu-btn"><i class="fas fa-bars"></i></div>
+</div>
+  </header>
+
+ <!-- section 1 -->
+  <section class="hero">
+    <div class="hero-content">
+      <h1 data-key="hero_title">Discover Siwa Oasis</h1>
+      <p data-key="hero_sub">Enjoy the hidden gem of the Western Desert in Egypt</p>
+      <a href="about.html" class="btn">Learn more</a>    </div>
+  </section>
+
+  <!-- section 2 -->
+  <section class="section about">
+    <h2 data-key="about_title">About Siwa Oasis</h2>
+    <p class="section-p" data-key="about_desc">Located in the heart of Egypt's Western Desert, Siwa Oasis is a tranquil paradise renowned for its natural beauty, rich history, and authentic Berber culture..</p>
+    
+    <div class="about-grid">
+      <div class="icon-box">
+        <img src="https://cdn-icons-png.flaticon.com/128/3039/3039398.png" alt="Desert">
+        <h3 data-key="western_desert">Western Sahara</h3>
+      </div>
+      <div class="icon-box">
+        <img src="https://cdn-icons-png.flaticon.com/128/1490/1490716.png" alt="Population">
+        <h3>34,000<br><span data-key="population">population</span></h3>
+      </div>
+      <div class="icon-box">
+        <img src="https://cdn-icons-png.flaticon.com/128/2910/2910899.png" alt="Salt Lakes">
+        <h3 data-key="salt_lakes">Salt lakes</h3>
+      </div>
+      <div class="icon-box">
+        <img src="https://cdn-icons-png.flaticon.com/128/2354/2354087.png" alt="Paradise">
+        <h3 data-key="paradise">Paradise of peace</h3>
+      </div>
+    </div>
+  </section>
+
+  <!-- section 3 -->
+  <section class="section attractions" style="background:#f9f9f9;">
+    <h2 data-key="attractions_title">The most beautiful tourist attractions</h2>
+    <p class="section-p" data-key="attractions_desc">Discover the most amazing places that Siwa Oasis has to offer</p>
+    
+    <div class="attractions-grid">
+      <div class="card">
+        <img src="photos/5.jpeg" alt="Temple">
+        <div class="card-content">
+          <h3 data-key="temple">Temple of Amun (Temple of the Oracle)</h3>
+          <p data-key="temple_desc">The famous temple where Alexander the Great consulted the oracle.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="photos/4.jpeg" alt="Salt Lake">
+        <div class="card-content">
+          <h3 data-key="salt_lake">Salt lakes</h3>
+          <p data-key="salt_lake_desc">Swimming in clear, natural salt pools has therapeutic properties..</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="photos/3.jpeg" alt="Sand Sea">
+        <div class="card-content">
+          <h3 data-key="sand_sea">The Great Sandy Sea</h3>
+          <p data-key="sand_sea_desc">Endless golden dunes perfect for safaris and camping.</p>
+        </div>
+      </div>
+      <div class="card">
+        <img src="photos/2.jpeg" alt="Shali">
+        <div class="card-content">
+          <h3 data-key="shali">Shali Castle</h3>
+          <p data-key="shali_desc">An ancient mud-brick fortress stands proudly in the heart of Siwa..</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- section 4 -->
+  <section class="section tourism">
+    <h2 data-key="tourism_title">Types of tourism</h2>
+    <p class="section-p" data-key="tourism_desc">Whatever your interests, Siwa has something special waiting for you.</p>
+    
+    <div class="tourism-grid">
+  <!-- ترفيهية -->
+  <div class="tour-card orange">
+    <div class="tour-img" style="background-image: url('photos/9.jpeg')"></div>
+    <div class="tour-overlay"></div>
+    <div class="tour-content">
+      <h3 data-key="recreational">Entertainment</h3>
+      <p data-key="recreational_desc">Swimming in salt lakes and clear natural springs.</p>
+    </div>
+  </div>
+
+  <!-- علاجية -->
+  <div class="tour-card dark">
+    <div class="tour-img" style="background-image: url('photos/8.jpeg')"></div>
+    <div class="tour-overlay"></div>
+    <div class="tour-content">
+      <h3 data-key="healing">Therapeutic</h3>
+      <p data-key="healing_desc">Sand baths and hot springs are famous for their therapeutic benefits..</p>
+    </div>
+  </div>
+
+  <!-- مغامرات -->
+  <div class="tour-card orange">
+    <div class="tour-img" style="background-image: url('photos/7.jpeg')"></div>
+    <div class="tour-overlay"></div>
+    <div class="tour-content">
+      <h3 data-key="adventure">Adventures</h3>
+      <p data-key="adventure_desc">Safari trips across the sandy sea and camping in the desert.</p>
+    </div>
+  </div>
+
+  <!-- ثقافية -->
+  <div class="tour-card dark">
+    <div class="tour-img" style="background-image: url('photos/6.jpeg')"></div>
+    <div class="tour-overlay"></div>
+    <div class="tour-content">
+      <h3 data-key="cultural">Cultural</h3>
+      <p data-key="cultural_desc">Experience authentic Berber traditions and local festivals.</p>
+    </div>
+  </div>
+</div>
+  </section>
+
+
+<!-- chat boot  -->
+<div class="chat-container">
+  <button id="chat-toggle" class="chat-btn">
+    <i class="fas fa-message"></i>
+    <span class="chat-badge">1</span>
+  </button>
+
+  <div id="chat-box" class="chat-box">
+    <div class="chat-header">
+      <div class="chat-avatar">
+        <img src="https://i.imgur.com/7k2yK5Z.png" alt="Siwa Assistant">
+      </div>
+      <div>
+        <h4>Siwa smart assistant</h4>
+        <small>It usually replies in less than a minute.</small>
+      </div>
+      <button id="chat-close" class="chat-close">×</button>
+    </div>
+
+    <div class="chat-body" id="chat-body">
+      <div class="msg bot">
+        <p>Hello! I'm Siwa's Smart Assistant</p>
+        <small>now</small>
+      </div>
+      <div class="msg bot">
+        <p>How can I help you today?</p>
+        <small>now</small>
+      </div>
+    </div>
+
+    <div class="quick-replies">
+  <button onclick="sendQuick('What is the best time to visit?')">What is the best time to visit?</button>
+  <button onclick="sendQuick('How do I get to Siwa?')">How do I get to Siwa?</button>
+  <button onclick="sendQuick('Where to stay?')">Where to stay?</button>
+  <button onclick="sendQuick('The most important landmarks and activities')">The most important landmarks and activities</button>
+</div>
+
+      <div class="chat-input-area">
+        <input type="text" id="user-input" placeholder="Write your message..." autocomplete="off">
+        <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+  <script src="script.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>

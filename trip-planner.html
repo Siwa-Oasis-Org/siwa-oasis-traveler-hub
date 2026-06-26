@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title data-key="trip_planner_title">Trip plan | Siwa</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="stylesheet" href="styles.css"/>
+  <link rel="stylesheet" href="trip-planner.css"/>
+</head>
+<body>
+
+  <header class="header">
+    <div class="logo" data-key="logo">Siwa</div>
+    <nav class="nav">
+      <ul class="nav-list">
+         <li><a href="index.html" class="active" data-key="home">Home</a></li>
+    <li><a href="about.html" data-key="about">About Siwa</a></li>
+    <li><a href="map.html" data-key="map">Map</a></li>
+    <li><a href="trip-planner.html" data-key="trip_planner">Trip planner</a></li>
+    <li><a href="bus-booking.html" data-key="bus_booking">Bus Booking</a></li>
+    <li><a href="places.html" data-key="places">Places</a></li>
+    <li><a href="ai-guide.html" data-key="ai_guide">Smart guide</a></li>
+      </ul>
+    </nav>
+    <div class="controls">
+      <!--<button id="lang-switch" class="switch-btn">
+        <span class="lang-en">EN</span> / <span class="lang-ar active">ع</span>
+      </button>-->
+      <button id="theme-switch" class="switch-btn"><i class="fas fa-moon"></i></button>
+      <div class="menu-btn"><i class="fas fa-bars"></i></div>
+    </div>
+  </header>
+
+  <section class="trip-planner-hero">
+    <div class="hero-content">
+      <h1 data-key="planner_hero_title">Smart trip planner</h1>
+      <p data-key="planner_hero_sub">Let us design the perfect Siwa adventure to suit your taste.</p>
+    </div>
+  </section>
+
+  <div class="container">
+    <div class="planner-card">
+      <div class="steps">
+        <div class="step"><span data-key="step1">1<br>Number of days</span></div>
+        <div class="step"><span data-key="step2">2<br>Access date</span></div>
+        <div class="step"><span data-key="step3">3<br>Trip type</span></div>
+      </div>
+
+      <div class="form-group">
+        <label data-key="days_label">Number of days in Siwa</label>
+        <div class="slider-container">
+          <input type="range" min="1" max="10" value="3" class="slider" id="daysSlider">
+          <span id="daysValue" class="days-value">3</span>
+          <span data-key="days_text">days</span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label data-key="date_label">Date of arrival in Siwa</label>
+        <input type="date" id="arrivalDate" required>
+      </div>
+
+      <div class="form-group">
+        <label data-key="type_label">Preferred type of trip</label>
+        <div class="radio-group">
+          <label><input type="radio" name="type" value="relax" checked> <span data-key="relax">relaxation</span></label>
+          <label><input type="radio" name="type" value="adventure"> <span data-key="adventure">adventure</span></label>
+          <label><input type="radio" name="type" value="cultural"> <span data-key="cultural">Cultural</span></label>
+          <label><input type="radio" name="type" value="mixed"> <span data-key="mixed">random</span></label>
+        </div>
+      </div>
+
+      <button class="generate-btn" id="generateBtn">
+        <i class="fas fa-magic"></i>
+        <span data-key="generate_text">Create a trip plan</span>
+      </button>
+    </div>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+  <script type="module" src="trip-planner.js"></script>
+  <script src="auth.js"></script>
+</body>
+</html>
